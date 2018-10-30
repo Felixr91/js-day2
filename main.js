@@ -107,6 +107,8 @@ function flightCost(destination, firstClass) {
   });
   if (firstClass == true) {
     return go.prices.firstClass
+  } else if (firstClass == false) {
+    return go.prices.standard
   }
 }
 
