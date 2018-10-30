@@ -105,9 +105,9 @@ function flightCost(destination, firstClass) {
   var go = flights.find(function (element) {
     return element.to == destination;
   });
-  if (firstClass == true) {
+  if (firstClass) {
     return go.prices.firstClass
-  } else if (firstClass == false) {
+  } else {
     return go.prices.standard
   }
 }
@@ -140,7 +140,7 @@ function dayOfWeek(n) {
   return "invalid day"
 }
 
-// allow a secondary argument to change the first day of the week to monday
+// MY CODE: allow a secondary argument to change the first day of the week to monday
 
 let daysOfTheWeek = ['Sunday', 'Monday', 'Tuesday', 'Wendesday', 'Thursday', 'Friday', 'Saturday']
 
@@ -153,6 +153,19 @@ function getDayOfWeek(n, offsetForMon) {
     daysOfTheWeek.push(daysOfTheWeek.shift());
     output = daysOfTheWeek[n - 1];
     daysOfTheWeek.unshift(daysOfTheWeek.pop());
+    return output;
+  }
+}
+
+//MARK SUGGESTION!!!!! If you place the array within the function it will revert back to its original state. MUCH BETTER!
+function getDayOfWeek(n, offsetForMon) {
+  let daysOfTheWeek = ['Sunday', 'Monday', 'Tuesday', 'Wendesday', 'Thursday', 'Friday', 'Saturday'];
+  var output = " ";
+  if (offsetForMon == false && n > -1 && n < daysOfTheWeek.length) {
+    return daysOfTheWeek[n - 1];
+  } if (offsetForMon == true && n > -1 && n < daysOfTheWeek.length) {
+    daysOfTheWeek.push(daysOfTheWeek.shift());
+    output = daysOfTheWeek[n - 1];
     return output;
   }
 }
